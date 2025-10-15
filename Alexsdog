@@ -1,0 +1,501 @@
+"""Word Bank"""
+all_chars = [chr(i) for i in range(32, 127)]
+no_list = [ch for ch in all_chars if not ch.isalpha()]
+
+easy_words = [
+    "bat",
+    "dog",
+    "toy",
+    "cat",
+    "rat",
+    "law",
+    "mud",
+    "boy",
+    "the",
+    "she",
+    "red",
+    "pop",
+    "lie",
+    "bay",
+    "hay",
+    "can",
+    "sad",
+    "mad",
+    "cap",
+    "rap",
+    "met",
+    "fad",
+    "hop",
+    "top",
+    "tap",
+    "lap",
+    "lie",
+    "bag",
+    "ham",
+    "ray",
+    "say",
+    "tie",
+    "bit",
+    "hit",
+    "hat",
+    "bet",
+    "bid",
+    "lid",
+    "pad",
+    "and",
+    "tan",
+    "tar",
+    "eat",
+    "ate",
+    "lag",
+    "rag",
+    "tag",
+    "kid",
+    "dip",
+    "rip",
+    "lip",
+    "pod",
+    "rod",
+    "nod",
+    "his",
+    "sis",
+    "gem",
+    "ant",
+    "wad",
+    "win",
+    "nap",
+    "way",
+    "pay",
+    "day",
+    "van",
+    "mom",
+    "dad",
+    "dot",
+    "rot",
+    "tip",
+    "hen",
+    "tin",
+    "fee",
+    "pee",
+    "tee",
+    "tea",
+    "pea",
+    "bee",
+    "sea",
+    "see",
+    "men",
+    "man",
+    "did",
+    "sim",
+    "pin",
+    "fib",
+    "yay",
+    "may",
+    "pot",
+    "pan",
+    "run",
+    "ran",
+    "ton",
+    "put",
+    "hut",
+    "but",
+    "cut",
+    "pit",
+    "vat",
+]
+
+medium_words = [
+    "lemon",
+    "cheese",
+    "happy",
+    "angry",
+    "tomato",
+    "carve",
+    "tattoo",
+    "water",
+    "walks",
+    "visit",
+    "liver",
+    "flight",
+    "height",
+    "skirts",
+    "house",
+    "train",
+    "spoon",
+    "tiger",
+    "zebra",
+    "doctor",
+    "teach",
+    "study",
+    "juice",
+    "bottle",
+    "never",
+    "peace",
+    "donor",
+    "python",
+    "coding",
+    "uncle",
+    "sleeps",
+    "table",
+    "wonder",
+    "growth",
+    "forest",
+    "river",
+    "yellow",
+    "purple",
+    "cycle",
+    "pillow",
+    "school",
+    "queen",
+    "yogurt",
+    "bouncy",
+    "flavor",
+    "guitar",
+    "piano",
+    "breeze",
+    "sunny",
+    "window",
+    "marvel",
+    "gloves",
+    "framed",
+    "sweet",
+    "dirty",
+    "clean",
+    "apple",
+    "coffee",
+    "button",
+    "refer",
+    "climb",
+    "minute",
+    "light",
+    "shelf",
+    "wobble",
+    "tired",
+    "party",
+    "brain",
+    "vault",
+    "tennis",
+    "winter",
+    "cover",
+    "paper",
+    "pencil",
+    "hello",
+]
+
+hard_words = [
+    "congratulations",
+    "absolutely",
+    "photosynthesis",
+    "monstrosity",
+    "university",
+    "cheeseburger",
+    "accommodate",
+    "suburban",
+    "pizazz",
+    "assuming",
+    "stewardess",
+    "xylophone",
+    "overzealous",
+    "withdrawal",
+    "wednesday",
+    "vulnerable",
+    "visualization",
+    "versatile",
+    "veterinary",
+    "vaccination",
+    "vegetarian",
+    "unanimous",
+    "transmission",
+    "trajectory",
+    "temporary",
+    "tournament",
+    "temperature",
+    "surveillance",
+    "psychology",
+    "responsibility",
+    "recommendation",
+    "pronunciation",
+    "practicioner",
+    "plagiarism",
+    "pilgrimage",
+    "philosophy",
+    "participation",
+    "nutritious",
+    "necessarily",
+    "miscellaneous",
+    "marshmallows",
+    "mayonnaise",
+    "leprechaun",
+    "limousine",
+    "kindergarten",
+    "knowledgeable",
+    "interference",
+    "inflammation",
+    "handkerchief",
+    "fluorescent",
+    "extraordinary",
+    "pharmaceutical",
+    "exhiliration",
+    "environmental",
+    "disappointment",
+    "choreography",
+    "circumstantial",
+    "cauliflower",
+    "cantaloupe",
+    "auditorium",
+    "apostrophe",
+    "amphitheater",
+    "advantageous",
+    "acknowledgement",
+    "abbreviation",
+    "abundant",
+    "accommodation",
+    "adjustment",
+    "ambidextrous",
+    "asymmetrical",
+    "auxiliary",
+    "bachelorette",
+    "bureaucracy",
+    "behavioral",
+    "boulevard",
+    "camouflage",
+    "determination",
+    "differentiation",
+    "description",
+    "dysfunctional",
+    "impressionable",
+    "enthusiastic",
+    "entrepreneur",
+    "eavesdropping",
+    "exaggerated",
+    "fascinating",
+    "governmental",
+    "hygienic",
+    "immediately",
+    "individuality",
+    "interpretation",
+    "laboratory",
+    "labyrinth",
+    "lieutenant",
+    "lightning",
+    "legitimate",
+    "likelihood",
+    "maintenance",
+    "masquerade",
+    "medicinal",
+    "mezzanine",
+    "medieval",
+    "mischievious",
+    "misunderstood",
+    "pneumonia",
+    "noticeable",
+    "opportunity",
+    "overwhelming",
+    "picturesque",
+    "pilgrimage",
+    "prohibitive",
+    "quadruple",
+    "ridiculous",
+    "sacrilegious",
+    "rudimentary",
+    "chandelier",
+    "sophomore",
+    "superfluous",
+    "susceptible",
+    "suspicious",
+    "synonymous",
+    "tomorrow",
+    "zucchini",
+]
+
+"""Plays a game of hangman"""
+import random
+import word_bank
+art = 0
+
+
+def display_word_with_underscores(word, guess_right):
+    """Word display"""
+    top_line = ""
+
+    for letter in word:
+        if letter.lower() in guess_right:
+            top_line += letter.upper() + " "
+        else:
+            top_line += "_ "
+       
+
+    print(top_line.strip())
+
+    
+def get_random_word(level):
+    """Level Code"""
+    """Returns a random word with a word length based on the given mode."""
+    if level == "5":
+        words = word_bank.hard_words
+    elif level == "4":
+        choiceA = random.randint(1,2)
+        if choiceA == 1:
+            words = word_bank.hard_words
+        else:
+            words = word_bank.medium_words
+    elif level == "3":
+        words = word_bank.medium_words
+    elif level == "2":
+        choiceB = random.randint(1,2)
+        if choiceB == 1:
+            words = word_bank.medium_words
+        else:
+            words = word_bank.easy_words
+    else:
+        words = word_bank.easy_words
+
+    return random.choice(words)
+
+
+
+def structure(peice_1, peice_2, peice_3, peice_4, peice_5, peice_6, peice_7):
+    peice_1 == print(" +---+")
+    peice_2 == print(" |   |")   
+    peice_3 == print(" | ")
+    peice_4 == print(" |    ")
+    peice_5 == print(" |   ")
+    peice_6 == print(" |    ")
+    peice_7 == print(" =========  ")
+
+    return (peice_1 + peice_2 + peice_3 +  peice_4 + peice_5 + peice_6 +  peice_7)
+
+def word_length(length):
+    if length == 1:
+        return print("_")
+   
+    elif length == 2:
+        return print("_ _")
+       
+    elif length == 3:
+        return print("_ _ _")
+    
+    elif length == 4:
+        return print("_ _ _ _")
+    
+    elif length == 5:
+        return print("_ _ _ _ _")
+    
+    elif length == 6:
+        return print("_ _ _ _ _ _")
+        
+    elif length == 7:
+        return print("_ _ _ _ _ _ _")
+        
+    elif length == 8:
+        return print("_ _ _ _ _ _ _ _")
+    
+    elif length == 9:
+        return print("_ _ _ _ _ _ _ _ _")
+
+    elif length == 10:
+        return print("_ _ _ _ _ _ _ _ _ _")
+
+    elif length == 11:
+        return print("_ _ _ _ _ _ _ _ _ _ _")
+
+    elif length == 12:
+        return print("_ _ _ _ _ _ _ _ _ _ _ _")
+
+    elif length == 13:
+        return print("_ _ _ _ _ _ _ _ _ _ _ _ _")
+
+    elif length == 14:
+        return print("_ _ _ _ _ _ _ _ _ _ _ _ _ _")
+
+    elif length == 15:
+        return print("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _")
+
+import typer
+import word_bank
+
+"""Introduction and Settings"""
+print("Welcome to hangman! You are going to try to guess a word letter by " 
+    "letter. Watch out! You only have so many guesses so use them wisely. ")
+level = input("what difficulty would you like? (1-5): ")
+while int(level) not in range(1,6):
+    print ("Sorry, invalid level")
+    level = input("what difficulty would you like? (1-5): ")
+word = typer.get_random_word(level)
+length = len(word)
+attempts = length
+print("Your word has " + str(length) + " letters. You have " + str(length + 1) + 
+      " attempts to guess the word."
+     )
+typer.structure(1,2,3,4,5,6,7)
+
+
+typer.word_length(length)
+s = word
+letter_list = list(s)
+
+
+guesses_right = []
+guesses_wrong = []
+
+while attempts > 0:
+    """Guessing code"""
+    guess = input("what is your guess? (A-Z): ")
+    while guess in word_bank.no_list:
+        print("Sorry. Invalid guess. Try again.")
+        guess = input("what is your guess? (A-Z): ")
+    while guess in guesses_right:
+        print("You have already guessed this letter. Try again.")
+        guess = input("what is your guess? (A-Z): ")
+    while guess in guesses_wrong:
+        print("You have already guessed this letter. Try again.")
+        guess = input("what is your guess? (A-Z): ")
+    
+    
+    if letter_list.count(guess) == 1:
+        print(str(guess) + " appears once!")
+        attempts = attempts + 1
+        guesses_right.append(str(guess))
+    elif letter_list.count(guess) == 2:
+        print(str(guess) + " appears twice!")
+        guesses_right.append(str(guess))
+        attempts = attempts + 1
+    elif letter_list.count(guess) == 3:
+        print(str(guess) + " appears three times!")
+        guesses_right.append(str(guess))
+        attempts = attempts + 1
+    elif guess == word:
+         print("Congratualations!!! You won!!!")
+         exit()
+    else:
+        print(str(guess) + " is not in the word")
+        guesses_wrong.append(str(guess))
+        attempts = attempts - 1
+       
+    if set(guesses_right) == set(list(s)):
+        print("Congratualations!!! You won!!!")
+        exit()
+   
+    typer.display_word_with_underscores(word, guesses_right)
+
+print("Sorry you ran out of guesses. Try again next time!")
+print("The word was " + word)
+
+
+
+
+
+
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    
+
+
+
