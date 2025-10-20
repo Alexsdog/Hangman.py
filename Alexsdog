@@ -310,7 +310,6 @@ hard_words = [
 
 """Plays a game of hangman"""
 import random
-import word_bank
 art = 0
 
 
@@ -440,7 +439,7 @@ guesses_wrong = []
 while attempts > 0:
     """Guessing code"""
     guess = input("what is your guess? (A-Z): ")
-    while guess in word_bank.no_list:
+    while guess in no_list:
         print("Sorry. Invalid guess. Try again.")
         guess = input("what is your guess? (A-Z): ")
     while guess in guesses_right:
